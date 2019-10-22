@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
+      //home: CategoriesScreen(),
+      initialRoute: CategoriesScreen.routeName, // '/'
       routes: ROUTES,
     );
   }

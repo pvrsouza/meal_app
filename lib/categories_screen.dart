@@ -4,6 +4,8 @@ import 'package:flutter_complete_guide/cetegory_item.dart';
 import './dummy-data.dart';
 
 class CategoriesScreen extends StatelessWidget {
+  static const routeName = "/";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
