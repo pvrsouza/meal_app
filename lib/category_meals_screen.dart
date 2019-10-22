@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
-  final String categoryId;
-  final String categoryTitle;
+  // final String categoryId;
+  // final String categoryTitle;
 
-  CategoryMealsScreen({this.categoryId, this.categoryTitle});
+  // CategoryMealsScreen({this.categoryId, this.categoryTitle});
 
   @override
   Widget build(BuildContext context) {
+    //como passamos o objeto na rota como um map temos que fazer o Cast
+    final routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, String>;
+
+    final categoryTitle = routeArgs['title'];
+    final categoryId = routeArgs['id'];
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(this.categoryTitle),
+        title: Text(categoryTitle),
       ),
       body: Center(
-        child: Text('The recipes for the category: ${this.categoryId}'),
+        child: Text('The recipes for the category with id: ${categoryId}'),
       ),
     );
   }
