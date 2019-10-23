@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/cetegory_item.dart';
+import '../widgets/cetegory_item.dart';
 
-import './dummy-data.dart';
+import '../dummy-data.dart';
 
 class CategoriesScreen extends StatelessWidget {
   static const routeName = "/";
@@ -21,6 +21,7 @@ class CategoriesScreen extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       children: DUMMY_CATEGORIES
           .map((category) => CategoryItem(
+                id: category.id,
                 title: category.title,
                 color: category.color,
               ))
