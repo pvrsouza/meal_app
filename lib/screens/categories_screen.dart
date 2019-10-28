@@ -8,12 +8,7 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('DeliMeal'),
-      ),
-      body: _buildCategoriesGrid(),
-    );
+    return _buildCategoriesGrid();
   }
 
   Widget _buildCategoriesGrid() {

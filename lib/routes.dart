@@ -1,10 +1,11 @@
+import './screens/tabs_screen.dart';
+
 import './screens/meal_detail_screen.dart';
 import './screens/category_meals_screen.dart';
-import './screens/categories_screen.dart';
 
 final ROUTES = {
   /// '/'
-  CategoriesScreen.routeName: (ctx) => CategoriesScreen(),
+  '/': (ctx) => TabsScreen(),
 
   /// '/categories-meals'
   CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
