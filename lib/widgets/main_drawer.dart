@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../screens/tabs_screen.dart';
+import '../screens/filters_screen.dart';
+
 class MainDrawer extends StatelessWidget {
-  Widget buildListTile(String text, IconData icon) {
+  Widget buildListTile(String text, IconData icon, Function tapHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -15,9 +18,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {
-        //...
-      },
+      onTap: tapHandler,
     );
   }
 
@@ -47,10 +48,20 @@ class MainDrawer extends StatelessWidget {
           buildListTile(
             'Meal',
             Icons.restaurant,
+            () {
+              /// usaremos o pushReplacementNamed porque ele não empilha na stack, simplesmente sobrescreve
+              /// Isso é muito útil por exemplo numa tela de Login!
+              Navigator.of(context).pushReplacementNamed(TabsScreen.routeName);
+            },
           ),
           buildListTile(
             'Filters',
             Icons.settings,
+            () {
+              /// usaremos o pushReplacementNamed porque ele não empilha na stack, simplesmente sobrescreve
+              /// Isso é muito útil por exemplo numa tela de Login!
+              Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+            },
           ),
         ],
       ),
