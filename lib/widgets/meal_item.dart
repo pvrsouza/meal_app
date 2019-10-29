@@ -9,6 +9,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   MealItem({
     @required this.id,
@@ -17,6 +18,7 @@ class MealItem extends StatelessWidget {
     @required this.duration,
     @required this.complexity,
     @required this.affordability,
+    @required this.removeItem,
   });
 
   String get complextyText {
@@ -46,7 +48,22 @@ class MealItem extends StatelessWidget {
         'id': this.id,
         'title': this.title,
       },
-    );
+
+      ///quando a pagina recebe um .pop o o Future.then é executado
+      ///Returns a Future that completes to the result value passed to pop when the pushed route is popped off the navigator.
+      ///https://api.flutter.dev/flutter/widgets/Navigator/pushNamed.html
+      ///
+      ///Quando vem do botao de voltar( não foi chamado o .pop explicitamente ) o Future retorna 'null
+    ).then((result) {
+      if (result == null) {
+        print(
+            "Provavelmente clicou no botão de voltar e não no botão de excluir. Por isso retornou $result");
+      }
+      if (result != null) {
+        print(result);
+        this.removeItem(result);
+      }
+    });
   }
 
   @override
